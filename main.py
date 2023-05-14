@@ -13,9 +13,14 @@ st.title("Youtube Gpt")
 prompt = st.text_input("plug in your prompt")
 
 #templates
-
+title_template = PromptTemplate(
+    input_variables= ['topic'],
+    template = 'write me a youtube video tittle about {topic}'
+)
 #llms 
 llm = OpenAI(temperature=0.9) #creativity
+
+#screen output
 if prompt:
     response = llm(prompt)
     st.write(response)
