@@ -19,8 +19,9 @@ title_template = PromptTemplate(
 )
 #llms 
 llm = OpenAI(temperature=0.9) #creativity
+title_chain = LLMChain(llm=llm, prompt= title_template, verbose=True)
 
 #screen output
 if prompt:
-    response = llm(prompt)
+    response = title_chain.run(topic=prompt)
     st.write(response)
