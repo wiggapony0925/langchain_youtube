@@ -11,3 +11,9 @@ os.environ['OPENAI_API_KEY'] = APIKEY
 #app
 st.title("Youtube Gpt")
 prompt = st.text_input("plug in your prompt")
+
+#llms 
+llm = OpenAI(temperature=0.9) #creativity
+if prompt:
+    response = llm(prompt)
+    st.write(response)
