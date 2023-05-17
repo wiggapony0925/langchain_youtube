@@ -29,7 +29,7 @@ title_chain = LLMChain(llm=llm, prompt= title_template, verbose=True, output_key
 script_chain = LLMChain(llm=llm, prompt= script_template, verbose=True, output_key='script')
 
 #chain these two isntances together
-sequential_chain = SequentialChain(chains=[title_chain, script_chain], input_variables=['topic'], output_variables=['title,', 'script '], verbose=True)#list of sequence 
+sequential_chain = SequentialChain(chains=[title_chain, script_chain], input_variables=['topic'], output_variables=['title', 'script'], verbose=True)
 
 #screen output
 if prompt:
