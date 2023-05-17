@@ -33,5 +33,5 @@ sequential_chain = SimpleSequentialChain(chains=[title_chain, script_chain], ver
 
 #screen output
 if prompt:
-    response = sequential_chain.run(topic=prompt)
+    response = sequential_chain.run(prompt)
     st.write(response)
