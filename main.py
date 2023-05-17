@@ -38,9 +38,9 @@ script_chain = LLMChain(llm=llm, prompt= script_template, verbose=True, output_k
 wiki = WikipediaAPIWrapper()
 #screen output
 if prompt:
-    title = title_chain(topic=prompt)
+    title = title_chain.run(prompt)
     wiki_research = wiki.run(prompt)
-    script = script_chain(title=title, wikipedia_research=wiki_research)
+    script = script_chain.run(title=title, wikipedia_research=wiki_research)
     st.write(title)
     st.write(script)
     
