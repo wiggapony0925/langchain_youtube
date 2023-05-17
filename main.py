@@ -28,7 +28,10 @@ llm = OpenAI(temperature=0.9) #creativity
 title_chain = LLMChain(llm=llm, prompt= title_template, verbose=True)
 script_chain = LLMChain(llm=llm, prompt= script_template, verbose=True)
 
+#chain these two isntances together
+sequential_chain = SimpleSequentialChain(chains=[title_chain, script_chain], verbose=True)#list of sequence 
+
 #screen output
 if prompt:
-    response = title_chain.run(topic=prompt)
+    response = sequential_chain.run(topic=prompt)
     st.write(response)
