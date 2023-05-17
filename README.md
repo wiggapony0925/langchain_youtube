@@ -12,8 +12,9 @@ The YouTube LLM (Language Model) project aims to assist content creators in gene
 
 ```bash
 git clone https://github.com/your-username/your-repository.git
-
 pip install -r requirements.txt
+```
+
 
 
 2. Open your web browser and navigate to the provided local URL (e.g., `http://localhost:8501`).
