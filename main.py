@@ -13,6 +13,11 @@ st.title("Youtube Gpt")
 prompt = st.text_input("plug in your prompt")
 
 #templates
+title_template = PromptTemplate(
+    input_variables = ['topic'], 
+    template = 'write me a youtube video title about {topic}'
+)
+
 script_template = PromptTemplate(
     input_variables= ['title'],
     template = 'write me a youtube video script based on this title:  {topic}'
@@ -20,7 +25,8 @@ script_template = PromptTemplate(
 # generate the script
 #llms 
 llm = OpenAI(temperature=0.9) #creativity
-title_chain = LLMChain(llm=llm, prompt= script_template, verbose=True)
+title_chain = LLMChain(llm=llm, prompt= title_template, verbose=True)
+script_chain = LLMChain(llm=llm, prompt= script_template, verbose=True)
 
 #screen output
 if prompt:
